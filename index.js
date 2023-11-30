@@ -9,13 +9,15 @@ app.set('view engine', 'handlebars')
 
 app.use(express.static('public'))
 
+//converter dados do formulário em objetos js
+
 app.use(express.urlencoded({
     extended: true
 }))
 
-
 app.use(express.json())
 
+//rotas
 app.get('/limparTarefas', (requisicao, resposta) => {
     const sql = 'DELETE FROM tarefas'
 
@@ -62,7 +64,6 @@ app.post('/completar', (requisicao, resposta) => {
     })
 })
 
-
 app.post('/descompletar', (requisicao, resposta) =>{
     const id = requisicao.body.id
 
@@ -80,7 +81,6 @@ app.post('/descompletar', (requisicao, resposta) =>{
         resposta.redirect('/')
     })
 })
-
 
 app.post('/criar', (requisicao, resposta) => {
     const descricao = requisicao.body.descricao
@@ -175,7 +175,6 @@ app.get('/', (requisicao, resposta) => {
         resposta.render('home', { tarefas, quantidadeTarefasAtivas })
     })
 })
-
 
 const conexao = mysql.createConnection({
     host: "localhost",

@@ -1,47 +1,45 @@
 {{#if tarefas}}
-
 <main>
     <section class="tarefas">
-       {{#each tarefas}}
-         <div class="tarefa">
+        {{#each tarefas}}
+        <div class="tarefa">
             <form action="">
                 {{#if this.completa}}
                 <div class="completa">
-                    <input type="checkbox" name="" id="tarefa-{{this.id}}" checked onchange="descompletarTarefa({{this.id}})">
-                    <label for="{{this.id}}">{{this.descricao}}</label>
-               </div>
+                    <input type="checkbox" id="tarefa-{{this.id}}" checked onchange="DescompletarTarefa({{this.id}})">
+                    <label for="tarefa-{{this.id}}"> {{this.descricao}} </label>
+                </div>
                 {{else}}
-               <div>
-                    <input type="checkbox" id="tarefa-{{this.id}}" onchange="completarTarefa({{this.id}})">
-                    <label for="{{this.id}}">{{this.descricao}}</label>
-               </div>
-                {{/if}}
 
+                <div>
+                    <input type="checkbox" id="tarefa-{{this.id}}" onchange="completarTarefa({{this.id}})">
+                    <label for="tarefa-{{this.id}}"> {{this.descricao}} </label>
+                </div>
+
+                {{/if}}
                 <button onclick="excluirTarefa({{this.id}})">
-                    <img src="/imagens/x-icon.png" alt="Ícone de X para excluir uma tarefa">
+                    <img src="/imagens/x-icon.png" alt="icone de x">
                 </button>
             </form>
         </div>
-       {{/each}}
-       
+        {{/each}}
         <div class="informacoes">
             <p>{{quantidadeTarefasAtivas}} tarefas ativas</p>
 
             <div class="botoes">
-                  <a href="/" class="active">Todas</a>
-                  <a href="/ativas">Ativas</a>
-                  <a href="/completas">Completas</a>
+                <a href="/" class="active">Todas</a>
+                <a href="/ativas">Ativas</a>
+                <a href="/completas">Completas</a>
             </div>
 
-            <a href="/limpartarefas">Limpar tarefas</a>
+            <a href="/limparTarefas">Limpar tarefas</a>
         </div>
     </section>
 
     <section class="botoes">
-            <a href="/" class="active">Todas</a>
-            <a href="/ativas">Ativas</a>
-            <a href="/completas">Completas</a>
+        <a href="/" class="active">Todas</a>
+        <a href="/ativas">Ativas</a>
+        <a href="/completas">Completas</a>
     </section>
 </main>
-
 {{/if}}
