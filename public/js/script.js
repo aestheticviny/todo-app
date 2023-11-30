@@ -35,26 +35,27 @@ function excluirTarefa(id) {
 }
 
 function alterarTema(){
-    const tema = localStorage.getitem("Tema")
+    const tema = localStorage.getItem("tema")
     const body = document.querySelector("body")
     const button = document.querySelector(".tema-button")
 
     if (tema){
         let novoTema
 
-        if (tema === "ligth"){
+        if (tema === "light"){
             novoTema = "dark"
             button.innerHTML = `<img src="/imagens/sun-icon.png" alt="iconde do sol">`
-            body.classList.remove("ligth")
+            body.classList.remove("light")
             body.classList.add("dark")
         } else{
             novoTema = "light"
             button.innerHTML = `<img src="/imagens/moon-icon.png" alt="iconde de lua">`
             body.classList.remove("dark")
-            body.classList.add("ligth")
+            body.classList.add("light")
         }
 
         localStorage.setItem("tema", novoTema)
+        return
     }
 
     localStorage.setItem("tema", "dark")
